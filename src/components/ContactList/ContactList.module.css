@@ -1,0 +1,22 @@
+.list {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.item {
+  background-color: #4169e1c0;
+  border: 1px solid #4169e1;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    border: 1px solid #304eaa;
+    background-color: #4169e1;
+  }
+}

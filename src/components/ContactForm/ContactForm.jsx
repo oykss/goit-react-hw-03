@@ -1,6 +1,7 @@
 import { useId } from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
+import css from './ContactForm.module.css';
 
 const contactSchema = Yup.object().shape({
   name: Yup.string()
@@ -14,31 +15,45 @@ const contactSchema = Yup.object().shape({
     .required('Required'),
 });
 
-const initialValues = {
-  name: '',
-  number: '',
-};
-
 export default function ContactForm({ handleSubmit }) {
   const nameId = useId();
   const numberId = useId();
 
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={{
+        name: '',
+        number: '',
+      }}
       onSubmit={handleSubmit}
       validationSchema={contactSchema}
     >
-      <Form>
-        <label htmlFor={nameId}>Name</label>
-        <Field type="text" name="name" id={nameId} />
-        <ErrorMessage name="name" component="span" />
+      <Form className={css.form}>
+        <label htmlFor={nameId} className={css.name}>
+          Name
+          <Field
+            type="text"
+            name="name"
+            id={nameId}
+            placeholder="Contact name"
+          />
+          <ErrorMessage name="name" component="span" />
+        </label>
 
-        <label htmlFor={numberId}>Number</label>
-        <Field type="text" name="number" id={numberId} />
-        <ErrorMessage name="number" component="span" />
+        <label htmlFor={numberId} className={css.number}>
+          Number
+          <Field
+            type="text"
+            name="number"
+            id={numberId}
+            placeholder="Contact number"
+          />
+          <ErrorMessage name="number" component="span" />
+        </label>
 
-        <button type="submit">Add contact</button>
+        <button type="submit" className={css.btnAdd}>
+          Add contact
+        </button>
       </Form>
     </Formik>
   );

@@ -1,18 +1,19 @@
 import { useId } from 'react';
+import css from './SearchBox.module.css';
 
 export default function SearchBox({ value, handleSearch }) {
   const inputId = useId();
 
   return (
-    <>
-      <label htmlFor={inputId}>Email</label>
+    <label htmlFor={inputId} className={css.search}>
+      Find contacts by name
       <input
         type="text"
         name="search"
-        id={inputId}
         value={value}
+        placeholder="Name"
         onChange={e => handleSearch(e.target.value)}
       />
-    </>
+    </label>
   );
 }

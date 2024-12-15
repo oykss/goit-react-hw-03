@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <div className={css.container}>
-      <h1>PhoneBook</h1>
+      <h1 className={css.title}>PhoneBook</h1>
       <ContactForm handleSubmit={contactAdd} />
       <SearchBox value={search} handleSearch={setSearch} />
       <ContactList contacts={visibleContacts} handleDelete={contactDelete} />

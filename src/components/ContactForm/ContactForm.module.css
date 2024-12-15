@@ -1,0 +1,61 @@
+.form {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 36px;
+}
+
+.name {
+  display: grid;
+  font-size: 20px;
+  color: #4169e1;
+  gap: 4px;
+
+  & input {
+    font-size: 16px;
+    border: 1.5px solid #4169e1;
+    border-radius: 8px;
+    padding: 4px 12px;
+    color: #4169e1;
+    width: 250px;
+    transition: all 250ms ease-in-out;
+
+    &:is(:hover, :focus) {
+      border: 1px solid red;
+      color: red;
+
+      &::placeholder {
+        color: red;
+      }
+    }
+
+    &::placeholder {
+      color: #4169e1;
+      transition: all 250ms ease-in-out;
+    }
+  }
+
+  & span {
+    font-size: 16px;
+    color: #e32636;
+  }
+}
+
+.number {
+  composes: name;
+}
+
+.btnAdd {
+  margin-top: 12px;
+  display: inline-block;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-size: 20px;
+  width: 160px;
+  background-color: #4169e1;
+  color: #fff;
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    background-color: #4169e1c9;
+  }
+}
