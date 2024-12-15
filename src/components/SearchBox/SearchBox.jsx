@@ -11,6 +11,7 @@ export default function SearchBox({ value, handleSearch }) {
         type="text"
         name="search"
         value={value}
+        id={inputId}
         placeholder="Name"
         onChange={e => handleSearch(e.target.value)}
       />
