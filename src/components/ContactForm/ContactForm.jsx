@@ -1,4 +1,3 @@
-import { useId } from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
@@ -16,9 +15,6 @@ const contactSchema = Yup.object().shape({
 });
 
 export default function ContactForm({ handleSubmit }) {
-  const nameId = useId();
-  const numberId = useId();
-
   return (
     <Formik
       initialValues={{
@@ -29,25 +25,15 @@ export default function ContactForm({ handleSubmit }) {
       validationSchema={contactSchema}
     >
       <Form className={css.form}>
-        <label htmlFor={nameId} className={css.name}>
+        <label className={css.name}>
           Name
-          <Field
-            type="text"
-            name="name"
-            id={nameId}
-            placeholder="Contact name"
-          />
+          <Field type="text" name="name" placeholder="Contact name" />
           <ErrorMessage name="name" component="span" />
         </label>
 
-        <label htmlFor={numberId} className={css.number}>
+        <label className={css.number}>
           Number
-          <Field
-            type="text"
-            name="number"
-            id={numberId}
-            placeholder="Contact number"
-          />
+          <Field type="text" name="number" placeholder="Contact number" />
           <ErrorMessage name="number" component="span" />
         </label>
 
